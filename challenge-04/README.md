@@ -109,7 +109,20 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.colocarPessoa = function(n){
+	var totalPessoas = carro.quantidadedePessoas + n;
+	if (carro.quantidadedePessoas === carro.assentos){
+		return "O carro ja está lotado!"
+    } 
+	if (totalPessoas > carro.assentos){
+		var pessoasCabem = carro.assentos - carro.quantidadedePessoas;
+		var tipoPessoa = carro.quantidadedePessoas === 1 ? " pessoa" : "pessoas"
+		return "Só cabem mais " + pessoasCabem + " " + tipoPessoa;
+    }
+	
+	carro.quantidadedePessoas += n;		
+	return "Já temos " + carro.quantidadedePessoas + " pessoas no carro!"	
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -119,38 +132,58 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+carro.cor; //Branco
 
 // Mude a cor do carro para vermelho.
-?
+carro.cor = "vermelho";
 
 // E agora, qual a cor do carro?
-?
+carro.cor; //Vermelho
 
 // Mude a cor do carro para verde musgo.
-?
+carro.cor ="Verde musgo";
 
 // E agora, qual a cor do carro?
-?
+carro.cor; //Verde musgo
 
 // Qual a marca e modelo do carro?
-?
+carro.marca; //Fiat
+carro.modelo; //500
 
 // Adicione 2 pessoas no carro.
-?
+carro.colocarPessoa(2); //"Já temos 2 pessoas no carro!"
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.colocarPessoa(4); //"Só cabem mais 3 pessoas"
 
 // Faça o carro encher.
-?
+carro.colocarPessoa(3); //"Já temos 5 pessoas no carro!"
+carro.colocarPessoa(1); //"O carro ja está lotado!"
 
 // Tire 4 pessoas do carro.
-?
+carro.colocarPessoa = function(n){
+	var totalPessoas = carro.quantidadedePessoas + n;
+	if (carro.quantidadedePessoas === carro.assentos && totalPessoas >= carro.assentos)		{
+		return "O carro ja está lotado!"
+    } 
+	if (totalPessoas > carro.assentos){
+		var pessoasCabem = carro.assentos - carro.quantidadedePessoas;
+		var tipoPessoa = carro.quantidadedePessoas === 1 ? " pessoa" : "pessoas"
+		return "Só cabem mais " + pessoasCabem + " " + tipoPessoa;
+    }
+	
+	carro.quantidadedePessoas += n;		
+	return "Já temos " + carro.quantidadedePessoas + " pessoas no carro!"	
+};
+
+carro.quantidadedePessoas = 0;
+carro.colocarPessoa(5); //"Já temos 5 pessoas no carro!"
+carro.colocarPessoa(-4); //"Já temos 1 pessoas no carro!"
+
 
 // Adicione 10 pessoas no carro.
-?
+carro.colocarPessoa(10); //"Só cabem mais 4  pessoa"
 
 // Quantas pessoas temos no carro?
-?
+carro.quantidadedePessoas; //1
 ```
