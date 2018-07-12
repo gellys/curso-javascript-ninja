@@ -55,7 +55,24 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-// ?
+function book(nameBook){
+	var todosLivros = {
+		"Livro da capa 1":{
+			quantidadePaginas:40,
+			autor: "Maria dos Santos",
+			editora: "Editora Palmares"},
+		"Livro da capa 2":{
+			quantidadePaginas:189,
+			autor: "Joao Matheus",
+			editora: "Editorazinha"},
+		"Livro da capa 3":{
+			quantidadePaginas:500,
+			autor: "Carla Luize",
+			editora: "Editora Céu Azul"}
+	}
+	
+	return !nameBook ? todosLivros : todosLivros [ nameBook ]; 
+};
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
@@ -67,7 +84,7 @@ Ainda com a função acima, imprima a quantidade de páginas de um livro qualque
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-// ?
+console.log ("O livro Livro da capa 1 tem " + book("Livro da capa 1").quantidadePaginas + " páginas!");
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
