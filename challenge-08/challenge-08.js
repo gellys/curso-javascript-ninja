@@ -54,28 +54,56 @@ vai efetuar. Será uma string com os valores `+`, `-`, `*`, `/` ou `%`;
   - Se o operador não for válido, retornar a frase:
   "Operação inválida."
 */
-// ?
+function calculadora(op){
+	return function operacaoMat(num1,num2){
+		var result;
+		switch(op){
+            case '+':
+				return result = num1 + num2;
+				break;
+			case '-':
+				return result = num1 - num2;
+				break;
+			case '*':
+				return result = num1 * num2;
+				break;
+			case '/':
+				return result = num1 / num2;
+				break;
+			case '%':
+				return result = num1 % num2;
+				break;
+		}
+	console.log("Resultado da operação: " + num1 + op + num2 + " = " + result);		
+	} 
+}
 
 /*
 Declare uma variável chamada `sum`, que receberá a função acima, passando como
 parâmetro o operador de soma.
 */
-// ?
+var sum = calculadora('+');
 
 /*
 Agora `sum` é uma função. Mostre no console a soma de dois números, usando ela.
 */
-// ?
+console.log(sum(8,2));
 
 /*
 Agora, declare algumas variáveis com os nomes `subtraction`, `multiplication`,
 `division` e `mod`, e atribua a elas a função `calculator`, passando o operador
 correto por parâmetro para cada uma delas.
 */
-// ?
+var subtraction = calculadora('-');
+var multiplication = calculadora('*');
+var division = calculadora('/');
+var mod = calculadora('%');
 
 /*
 Faça uma operação com cada uma das funções criadas acima, mostrando o resultado
 no console.
 */
-// ?
+console.log(subtraction(80,22));
+console.log(multiplication(8,22));
+console.log(division(80,2));
+console.log(mod(13,9));
